@@ -30,11 +30,12 @@ series). Segment by market, validate per lane, then contract.
 ## The monitor
 A five-tab Power BI Rate Risk Monitor: Overview with a plain-language verdict, Volatility,
 Seasonality, Budget Band with a live euro-exposure what-if, Context and limits.
+
+Live interactive monitor: https://khareparag.github.io/freight-rate-risk-monitor/
 See [dashboard/Report_2_Dashboard.pdf](dashboard/Report_2_Dashboard.pdf) for the five
-pages, or open the interactive Plotly prototype:
-[dashboard/Report_2_Dashboard.html](dashboard/Report_2_Dashboard.html)
-(also served via GitHub Pages from docs/). A procurement team refreshes it each quarter
-from the public APIs.
+Power BI pages, or the source of the interactive version in
+[dashboard/Report_2_Dashboard.html](dashboard/Report_2_Dashboard.html). A procurement team
+refreshes it each quarter from the public APIs.
 
 ## Method
 Two official producer price index series (Eurostat SPPI H51 air, H49.4 road), INSEE CPF
@@ -47,6 +48,10 @@ out-of-sample check on the post-window air tail. Each visual carries its test.
 The demo runs on open data so anyone reproduces it end to end. Inside a company the same
 pipeline points at the rate feeds buyers already use (TAC or BAI air indices, Xeneta, Ti or
 Upply road benchmarks, or the firm's own rate cards) and the monitor becomes lane-level.
+It is built from practice: I have run freight tenders daily through Transporeon,
+TiContract, Keelvar, Coupa, SAP, Freightos, Alpega TMS, SHIPSTA, Cargoclix and TenderEasy
+among others, and configured tender scoring logic on the platform side. The monitor is
+the rate-risk layer those workflows are missing.
 
 ## Data and limits
 Open data, no API key, no paywall. The air index (NACE H51) includes passenger transport,
@@ -68,4 +73,7 @@ machine-readable outputs every number above is checked against.
 Parag Khare. Twelve years in freight pricing, tendering and procurement, buyer and seller
 side, now with the analytics layer. Open to Category, Pricing and Procurement Manager
 roles in Frankfurt, Rhine-Main, Rhine-Neckar, EMEA remote and Switzerland.
-LinkedIn: ADD-LINK | parag2khare@gmail.com
+
+- LinkedIn: https://www.linkedin.com/in/khareparag/
+- CV: https://khareparag.github.io/CV/
+- Email: parag2khare@gmail.com
