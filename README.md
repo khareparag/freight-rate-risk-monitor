@@ -75,5 +75,5 @@ side, now with the analytics layer. Open to Category, Pricing and Procurement Ma
 roles in Frankfurt, Rhine-Main, Rhine-Neckar, EMEA remote and Switzerland.
 
 - LinkedIn: https://www.linkedin.com/in/khareparag/
-- CV: https://khareparag.github.io/CV/
-- Email: parag2khare@gmail.com
+- CV: https://rfq.ch
+- Email: pk@rfq.ch
