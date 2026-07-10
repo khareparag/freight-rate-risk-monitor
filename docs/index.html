@@ -27,9 +27,9 @@
  <span class="tab" data-p="seas">Seasonality</span>
  <span class="tab" data-p="ctx">Context and limits</span>
 </div>
-<div class="panel active" id="rates"><div class="chart" id="c_rates"></div></div>
+<div class="panel active" id="rates"><div class="note" style="margin-bottom:12px"><b>Verdict.</b> Air runs 1.63x road's volatility (intra-year band 6.7% vs 2.8%). Index-link or shorten air contracts, fix road long, and tender air into the Q4-Q1 trough. The timing rule paid in 75% of 85 backtested market-years.</div><div class="chart" id="c_rates"></div></div>
 <div class="panel" id="vol"><div class="chart" id="c_roll"></div><div class="chart" id="c_cv"></div></div>
-<div class="panel" id="seas"><div class="chart" id="c_q"></div></div>
+<div class="panel" id="seas"><div class="chart" id="c_q"></div><div class="note">Kruskal-Wallis quarter effect: air p about 1e-10, road p about 5e-4. Both modes seasonal, peak Q2. Lock air ahead of the Q2 high season: the trough-season lock beat the peak-season lock in 75% of 85 market-years (Germany 8 of 9), confirmed out of sample in 2024-2025.</div></div>
 <div class="panel" id="ctx"><div class="chart" id="c_eu"></div>
  <div class="note"><b>Limits.</b> The air index (NACE H51) includes passenger air, so it is a broad proxy. Road has no EU aggregate, so the comparison is at member-state level. French air is INSEE CPF 51.21 (freight only), a purer but spikier series than the Eurostat H51 used for the other five. Figures are index tendencies, not one firm's realised costs.</div><div class="note" style="margin-top:12px"><b>Validation.</b> The tender-timing rule is backtested: locking air at trough-season levels beat peak-season locks in 75% of 85 market-years (mean edge 1.83%). The air-vs-road volatility gap survives removing the pandemic years (CV ratio 1.35 ex-COVID, 1.41 pre-COVID, 1.63 full window). Out of sample, the Q2 climb repeated in 10 of 12 market-years in 2024-2025.</div></div>
 <div class="foot">Air color blue, road color red throughout. Built from fact_freight_6.csv. Power BI is the graded build; this prototype demonstrates the same design.</div>
@@ -50,23 +50,21 @@ function rates(){const g=sel.value,d=DATA.byCountry[g];
  Plotly.react("c_rates",[
   {x:d.air.q,y:d.air.v,name:"air",mode:"lines",line:{color:AIR}},
   {x:d.road.q,y:d.road.v,name:"road",mode:"lines",line:{color:ROAD}}],
-  LAY(g+" - air vs road price index (2021=100)"),{displayModeBar:false});}
+  LAY(g+": air swings wider than road around the same trend (index, 2021=100)"),{displayModeBar:false});}
 function vol(){const g=sel.value,d=DATA.byCountry[g];
  Plotly.react("c_roll",[
   {x:d.air.q,y:d.air.roll,name:"air",mode:"lines",line:{color:AIR}},
   {x:d.road.q,y:d.road.roll,name:"road",mode:"lines",line:{color:ROAD}}],
-  LAY(g+" - rolling 4Q volatility (z-score std)"),{displayModeBar:false});
- Plotly.react("c_cv",[
-  {x:DATA.cv.geos,y:DATA.cv.air,name:"air",type:"bar",marker:{color:AIR}},
-  {x:DATA.cv.geos,y:DATA.cv.road,name:"road",type:"bar",marker:{color:ROAD}}],
-  Object.assign(LAY("Coefficient of variation by country"),{barmode:"group"}),{displayModeBar:false});}
+  LAY(g+": volatility is episodic, with spikes in 2008 and 2020-22 (rolling 4Q, z-score)"),{displayModeBar:false});
+ Plotly.react("c_cv",(()=>{const o=DATA.cv.geos.map((g,i)=>({g,a:DATA.cv.air[i],r:DATA.cv.road[i]})).sort((x,y)=>y.a-x.a);return [{x:o.map(d=>d.g),y:o.map(d=>d.a),name:"air",type:"bar",marker:{color:AIR}},{x:o.map(d=>d.g),y:o.map(d=>d.r),name:"road",type:"bar",marker:{color:ROAD}}]})(),
+  Object.assign(LAY("Air leads in four of six markets. Poland and the Netherlands reverse the rule (CV)"),{barmode:"group"}),{displayModeBar:false});}
 function seas(){Plotly.react("c_q",[
   {x:["Q1","Q2","Q3","Q4"],y:DATA.quarter.air,name:"air",type:"bar",marker:{color:AIR}},
   {x:["Q1","Q2","Q3","Q4"],y:DATA.quarter.road,name:"road",type:"bar",marker:{color:ROAD}}],
-  Object.assign(LAY("Mean quarter-on-quarter rate change by quarter (%)"),{barmode:"group"}),{displayModeBar:false});}
+  Object.assign(LAY("Both modes peak in Q2. Air climbs about 3.2% into the spring quarter (mean QoQ, %)"),{barmode:"group"}),{displayModeBar:false});}
 function ctx(){Plotly.react("c_eu",[
   {x:DATA.eu_air.q,y:DATA.eu_air.v,name:"EU27 air",mode:"lines",line:{color:AIR}}],
-  LAY("EU27 air transport price index, full history (air only)"),{displayModeBar:false});}
+  LAY("Twenty years of EU27 air: event-driven spikes, not steady drift (index, 2021=100)"),{displayModeBar:false});}
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
  document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
