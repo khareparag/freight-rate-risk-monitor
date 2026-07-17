@@ -37,6 +37,10 @@ Power BI pages, or the source of the interactive version in
 [dashboard/Report_2_Dashboard.html](dashboard/Report_2_Dashboard.html). A procurement team
 refreshes it each quarter from the public APIs.
 
+Streaming extension: [freight-rate-stream](https://github.com/khareparag/freight-rate-stream)
+rebuilds this study as an event-driven pipeline: Kafka topics, rolling z-score scoring in
+motion, bi-directional HMAC-signed webhooks.
+
 ## Method
 Two official producer price index series (Eurostat SPPI H51 air, H49.4 road), INSEE CPF
 51.21 for French air. Cleaning and alignment on overlapping windows per market, z-score
@@ -75,5 +79,5 @@ side, now with the analytics layer. Open to Category, Pricing and Procurement Ma
 roles in Frankfurt, Rhine-Main, Rhine-Neckar, EMEA remote and Switzerland.
 
 - LinkedIn: https://www.linkedin.com/in/khareparag/
-- CV: https://rfq.ch
-- Email: pk@rfq.ch
+- CV: https://khareparag.github.io/CV/
+- Email: parag2khare@gmail.com
