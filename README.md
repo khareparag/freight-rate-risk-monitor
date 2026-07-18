@@ -5,6 +5,13 @@ Air rates run about 1.6x road's volatility inside a 6.7% annual band with a hard
 Built on open Eurostat and INSEE data, six EU markets, every chart backed by a statistical
 test. The result is a set of contracting rules: fix, tender or ride spot.
 
+## Who this is for
+- Freight category managers: when to tender and how wide to budget - dedicated edition: [freight-tender-timing](https://github.com/khareparag/freight-tender-timing).
+- Pricing and tender teams: volatility, the Q2 peak, the trough-lock edge - dedicated edition: [freight-pricing-volatility](https://github.com/khareparag/freight-pricing-volatility).
+- Engineers: the same study set in motion - [freight-rate-stream](https://github.com/khareparag/freight-rate-stream).
+
+This repo stays the canonical home of the analysis. The editions present it per audience and sync from here.
+
 ## The decision
 Air and road freight carry different rate risk, so they should be contracted and budgeted
 differently. Index-link or shorten air agreements and tender them into the Q4-Q1 trough.
@@ -79,5 +86,5 @@ side, now with the analytics layer. Open to Category, Pricing and Procurement Ma
 roles in Frankfurt, Rhine-Main, Rhine-Neckar, EMEA remote and Switzerland.
 
 - LinkedIn: https://www.linkedin.com/in/khareparag/
-- CV: https://khareparag.github.io/CV/
-- Email: parag2khare@gmail.com
+- CV: https://rfq.ch/
+- Email: pk@rfq.ch
