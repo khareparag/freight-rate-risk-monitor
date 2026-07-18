@@ -8,7 +8,7 @@ test. The result is a set of contracting rules: fix, tender or ride spot.
 ## Who this is for
 - Freight category managers: when to tender and how wide to budget - dedicated edition: [freight-tender-timing](https://github.com/khareparag/freight-tender-timing).
 - Pricing and tender teams: volatility, the Q2 peak, the trough-lock edge - dedicated edition: [freight-pricing-volatility](https://github.com/khareparag/freight-pricing-volatility).
-- Forward Deployment Engineers: the same study set in motion - [freight-rate-stream](https://github.com/khareparag/freight-rate-stream).
+- Forward Deployed Engineers: the same study set in motion - [freight-rate-stream](https://github.com/khareparag/freight-rate-stream).
 
 This repo stays the canonical home of the analysis. The editions present it per audience and sync from here.
 
